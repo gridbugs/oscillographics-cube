@@ -1,0 +1,9 @@
+[package]
+name = "oscillographics-demo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.15"
+caw = { version = "0.7", features = ["player", "web"] }
+caw_bevy = "0.1"
