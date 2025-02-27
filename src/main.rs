@@ -271,7 +271,14 @@ fn render_scope(scope_state: Res<ScopeState>, window: Query<&Window>, mut gizmos
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                title: "Oscillographics Cube".into(),
+                resolution: (960., 720.).into(),
+                ..default()
+            }),
+            ..default()
+        }))
         .add_systems(Startup, (setup_caw_player, setup))
         .insert_resource(ClearColor(Color::srgb(0., 0., 0.)))
         .add_systems(FixedFirst, caw_tick)
